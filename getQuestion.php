@@ -21,7 +21,7 @@
 			echo $row["question"];
 		}
 	} else {
-		echo "0 results";
+		echo "";
 	}
 	$conn->close();
 ?>

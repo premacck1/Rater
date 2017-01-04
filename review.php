@@ -46,7 +46,8 @@
 			  });
 			  function showQuestions() 
 			  {
-				  var xhttp;   
+				  var xhttp;
+				  window.scrollTo(0,document.body.scrollHeight);   
 				  if (qno == "") {
 					document.getElementById("question").innerHTML = "";
 					return;
@@ -77,7 +78,14 @@
 				  {
 					  window.location.replace("thankyou.html");
 				  }
+				  resetSlider();
 				  showQuestions();
+			  }
+			  function resetSlider()
+			  {
+				  var $slider = $("#coloredSlider");
+				  $slider.slider("value", 0);
+				  document.getElementById("amount").value=0;
 			  }
 		</script>
 	</HEAD>
@@ -91,35 +99,25 @@
 				</header>
 				<br><br>
 				<div class="box" style="margin:5px;">
-					<TABLE width="100%" cellpadding="5px">
-						<TBODY>
-						<TR>
-							<h4>
-								<div id="question">
-								</div>
-							</h4>
+					<h4>
+						<div id="question">
+						</div>
+					</h4>
+					<TABLE width="50%">
+						<tbody>
+						<TR style="border: 0px">
+							<TD>
+								<div id="coloredSlider"></div>
+							</TD>
 						</TR>
-						<TR>
-							<TABLE width="50%">
-								<tbody>
-								<TR style="border: 0px">
-									<TD>
-										<div id="coloredSlider"></div>
-									</TD>
-								</TR>
-								<TR style="border: 0px">
-									<TD>
-										<center><input type="text" id="amount" readonly style="width: 45px" value="0"></center>
-									</TD>
-								</TR>
-								</tbody>
-							</TABLE>
+						<TR style="border: 0px">
+							<TD>
+								<center><input type="text" id="amount" readonly style="width: 45px" value="0"></center>
+							</TD>
 						</TR>
-						<TR>
-							<div align="right"><input type="button" style="width: 150px" class="button alt fit" value="NEXT" onclick="submitAnswer()"></div>
-						</TR>
-						</TBODY>
+						</tbody>
 					</TABLE>
+					<div align="right"><input type="button" id="nextButton" style="width: 150px" class="button alt fit" value="NEXT" onclick="submitAnswer()"></div>
 				</div>
 			</div>
 		</section>
