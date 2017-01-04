@@ -16,7 +16,7 @@
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			echo "<tr> <td><a href=\"view.php?subject_name=".$row["subject_name"]."\">".$row["subject_name"]."</td><td>".$row["avgRate"]."</td></tr>";
+			echo "<thead><tr><th>Course Description</th><th>Average Rating</th></thead><tbody></tr><tr> <td><a href=\"view.php?subject_name=".$row["subject_name"]."\">".$row["subject_name"]."</td><td>".$row["avgRate"]."</td></tr></tbody>";
 		}
 	} else {
 		echo "0 results";

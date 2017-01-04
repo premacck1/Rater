@@ -16,7 +16,7 @@
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			echo "<tr> <td><a href=\"review.php?subject_name=".$row["subject_name"]."\">".$row["subject_name"]."</td></tr>";
+			echo "<thead><tr><th>Course Description</th></tr></thead><tbody><tr><td><a href=\"review.php?subject_name=".$row["subject_name"]."\">".$row["subject_name"]."</td></tr></tbody>";
 		}
 	} else {
 		echo "0 results";
