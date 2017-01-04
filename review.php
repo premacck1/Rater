@@ -5,6 +5,8 @@
 		<script  src="https://code.jquery.com/jquery-2.1.3.min.js"  integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM="  crossorigin="anonymous"></script>
 		<script  src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"  integrity="sha256-erF9fIMASEVmAWGdOmQi615Bmx0L/vWNixxTNDXS4FQ="  crossorigin="anonymous"></script>
 		<script>
+			  var qno=1;
+			  var subject_name = "<?php echo $_GET['subject_name']; ?>";
 			  function getTheColor(colorVal) {
 				  colorVal *= 20;
 				var theColor = "";
@@ -42,9 +44,9 @@
 				  }
 				});
 			  });
-			  function showQuestions(qno) 
+			  function showQuestions() 
 			  {
-				  var xhttp;    
+				  var xhttp;   
 				  if (qno == "") {
 					document.getElementById("question").innerHTML = "";
 					return;
@@ -59,23 +61,41 @@
 				  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				  xhttp.send("q="+qno);
 			  }
+			  function submitAnswer()
+			  {
+				  var rate = document.getElementById("amount").value;
+				  xhttp = new XMLHttpRequest();
+				  xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+			        }
+				  };
+				  xhttp.open("POST", "submit.php", true);
+				  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				  xhttp.send("q="+qno+"&sub="+subject_name+"&rate="+rate);
+				  qno++;
+				  if(qno==6)
+				  {
+					  window.location.replace("thankyou.html");
+				  }
+				  showQuestions();
+			  }
 		</script>
 	</HEAD>
-	<BODY onLoad="showQuestions(1)">
+	<BODY onLoad="showQuestions()">
 		<section id="banner">
-			<div class="inner" style="padding-top: 10px;">
+			<div class="inner" style="padding-top: 10px; padding-bottom: 10px;">
 				<header>
 					<h1 style="margin: 1px;">University Of Florida</h1>
 					<h2 style="margin: 1px;">Computer and Information Science and Engineering</h2>
 					<h3><?php echo $_GET['subject_name']; ?></h3>
 				</header>
+				<br><br>
 				<div class="box" style="margin:5px;">
 					<TABLE width="100%" cellpadding="5px">
 						<TBODY>
 						<TR>
 							<h4>
 								<div id="question">
-									QUESTION 1
 								</div>
 							</h4>
 						</TR>
@@ -89,14 +109,14 @@
 								</TR>
 								<TR style="border: 0px">
 									<TD>
-										<center><input type="text" id="amount" readonly style="width: 45px"></center>
+										<center><input type="text" id="amount" readonly style="width: 45px" value="0"></center>
 									</TD>
 								</TR>
 								</tbody>
 							</TABLE>
 						</TR>
 						<TR>
-							<div align="right"><input type="button" style="width: 150px" class="button alt fit" value="NEXT"></div>
+							<div align="right"><input type="button" style="width: 150px" class="button alt fit" value="NEXT" onclick="submitAnswer()"></div>
 						</TR>
 						</TBODY>
 					</TABLE>
