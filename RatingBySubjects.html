@@ -6,6 +6,47 @@
 <link rel="stylesheet" href="assets/css/common.css" />
 </head>
 <body>
+<script>
+var qno=1;
+var subject_name = "<?php echo $_GET['subject_name']; ?>";
+function getTheColor(colorVal) {
+	  colorVal *= 20;
+	var theColor = "";
+	if (colorVal < 50) {
+	  myRed = 255;
+	  myGreen = parseInt(((colorVal * 2) * 255) / 100);
+	} else {
+	  myRed = parseInt(((100 - colorVal) * 2) * 255 / 100);
+	  myGreen = 255;
+	}
+	theColor = "rgb(" + myRed + "," + myGreen + ",0)";
+	return (theColor);
+}
+
+function refreshSwatch() {
+	var coloredSlider = $("#coloredSlider").slider("value"),
+	  myColor = getTheColor(coloredSlider);
+
+	$("#coloredSlider .ui-slider-range").css("background-color", myColor);
+
+	$("#coloredSlider .ui-state-default, .ui-widget-content .ui-state-default").css("background-color", myColor);
+}
+
+  $(function() {
+				$("#coloredSlider").slider({
+				  orientation: "horizontal",
+				  range: "min",
+				  max: 5,
+				  value: 0,
+				  step: 1,
+				  change: refreshSwatch,
+				  slide: function(event, ui) {
+					refreshSwatch();
+					$("#amount").val(ui.value);
+				  }
+				
+</script>
+				
 			<section id="banner">
 				<div class="inner">
 					<header>
@@ -37,27 +78,27 @@
 												<tr>
 													<td>Item 1</td>
 													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
+													<td><div id="coloredSlider"></div></td>
 												</tr>
 												<tr>
 													<td>Item 2</td>
 													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
+													<td><div id="coloredSlider"></div></td>
 												</tr>
 												<tr>
 													<td>Item 3</td>
 													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
+													<td><div id="coloredSlider"></div></td>
 												</tr>
 												<tr>
 													<td>Item 4</td>
 													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
+													<td><div id="coloredSlider"></div></td>
 												</tr>
 												<tr>
 													<td>Item 5</td>
 													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
+													<td><div id="coloredSlider"></div></td>
 												</tr>
 											</tbody>
 										</table>
