@@ -1578,7 +1578,7 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: #9a9a9a;
+		color: #fbfbfb;
 		font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
 		font-size: 14pt;
 		font-weight: 400;
@@ -2002,6 +2002,7 @@
 		text-decoration: none;
 		display: block;
 		position: relative;
+		
 	}
 
 		.select-wrapper:before {
@@ -2446,6 +2447,7 @@
 		margin: auto;
 		width: 80%;
 		align: center;
+		margin-bottom: 50px
 	}
 
 		table tbody tr {
