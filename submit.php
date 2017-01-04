@@ -12,7 +12,8 @@
 		die("Connection failed: " . $conn->connect_error);
 	} 
 	
-	$sql = "SELECT avgRate, noOfRate FROM ".str_replace(" ", "", $_POST["sub"])." where qno=".$_POST["q"];
+	$sql = "SELECT avgRate, noOfRate FROM quesSubz WHERE subject_name='".$_POST["sub"]."' AND qno=".$_POST["q"];
+	echo $sql;
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -27,8 +28,8 @@
 	
 	$newAvgRate = (($avgRate*$noOfRate)+$_POST["rate"])/($noOfRate+1);
 		
-	$sql = "UPDATE ".str_replace(" ", "", $_POST["sub"])." SET avgRate=".$newAvgRate.", noOfRate=".($noOfRate+1)." WHERE qno=".$_POST["q"];
-
+	$sql = "UPDATE quesSubz SET avgRate=".$newAvgRate.", noOfRate=".($noOfRate+1)." WHERE subject_name='".$_POST["sub"]."' AND qno=".$_POST["q"];
+	echo $sql;
 	if ($conn->query($sql) === TRUE) {
 		echo "Record updated successfully";
 	} else {

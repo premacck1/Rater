@@ -61,8 +61,8 @@
 					<table class="alt">
 						<thead>
 							<tr>
-								<th>QUESTION</th>
-								<th>AVERAGE RATING</th>
+								<th><h4 style="margin-bottom: 0px">QUESTION</h4></th>
+								<th><h4 style="margin-bottom: 0px">AVERAGE RATING</h4></th>
 							</tr>
 						</thead>
 						<tbody id="table_body" style="color:#fff">

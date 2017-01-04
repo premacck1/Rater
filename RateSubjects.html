@@ -4,57 +4,50 @@
 <meta charset="ISO-8859-1">
 <title>Subject Ratings - CISE, University of Florida</title>
 <link rel="stylesheet" href="assets/css/common.css" />
+<script>
+function getSubjects()
+{
+	var semSelect = document.getElementsByName("subject-category")[0].value;
+	var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("subjects").innerHTML = this.responseText;
+		}
+	  };
+	  xhttp.open("POST", "getSubjetsOnly.php", true);
+	  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	  xhttp.send("semSelect="+semSelect);
+	
+}
+</script>
 </head>
 <body>		
 			<section id="banner">
-				<div class="inner">
+				<div class="inner" style="padding: 10px">
 					<header>
-						<h1>University Of Florida</h1>
+						<h1 style="margin: 10px">University Of Florida</h1>
+						<h2 style="margin: 10px">Computer and Information Science and Engineering</h2>
+						<h3 style="margin-bottom: 20px">Select semester for which you want to rate and then select the subjects.</h3>
 					</header>
-
-					<div>
-					<header>
-						<h2>Computer and Information Science and Engineering</h2>
-					</header>	
-					<div><h3>Select semester for which you want to rate and then select the subjects.</h3></div>
-					<div> </div>
-									<div class="table-wrapper">
-												<div class="select-wrapper" style ="width: 500px; margin: auto;">
-													<select name="subject-category" id="demo-category" onchange="getSubjects()">
-														<option value="">- Category -</option>
-														<option value="fall">Fall</option>
-														<option value="spring">Spring</option>
-													</select>
-											</div>
-										<table class="alt" style ="margin-top: 40px;">
-											<thead>
-												<tr>
-													<th>Course Description</th>
-												</tr>
-											</thead>
-											<tbody id="subjects">
-											</tbody>
-										</table>
-									</div>
+					<div class="table-wrapper">
+						<div class="select-wrapper" style ="width: 75%; margin: auto;">
+							<select name="subject-category" id="demo-category" onchange="getSubjects()">
+								<option value="">- Category -</option>
+								<option value="fall">Fall</option>
+								<option value="spring">Spring</option>
+							</select>
 						</div>
-						</div>
-						</section>
-						<script>
-						function getSubjects()
-						{
-							var semSelect = document.getElementsByName("subject-category")[0].value;
-							var xhttp = new XMLHttpRequest();
-							  xhttp.onreadystatechange = function() {
-								if (this.readyState == 4 && this.status == 200) {
-									document.getElementById("subjects").innerHTML = this.responseText;
-						        }
-							  };
-							  xhttp.open("POST", "getSubjetsOnly.php", true);
-							  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-							  xhttp.send("semSelect="+semSelect);
-							
-						}
-						</script>
-
+						<table class="alt" style ="margin-top: 40px;">
+							<thead>
+								<tr>
+									<th><h4 style="margin-bottom: 0px">Course Description</h4></th>
+								</tr>
+							</thead>
+							<tbody id="subjects">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
 </body>
 </html>
