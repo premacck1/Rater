@@ -26,7 +26,7 @@
 		$theColor = "rgb(" . $myRed . "," . $myGreen . ",0)";
 		return $theColor;
 	}
-	
+	echo "<thead><tr><th><h4 style=\"margin-bottom: 0px\">Course Description</h4></th><th><h4 style=\"margin-bottom: 0px\">Average Rating</h4></th></tr></thead><tbody>";
 	$sql = "SELECT a.subject_name as subject_name,AVG(a.avgRate) as avgRate,b.sem FROM quessubz a Inner JOIN subjects b on a.subject_name = b.subject_name where b.sem='".$_POST["semSelect"]."' group by a.subject_name";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
@@ -37,5 +37,6 @@
 	} else {
 		echo "0 results";
 	}
+	echo "<tbody>";
 	$conn->close();
 ?>
