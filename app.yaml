@@ -4,5 +4,5 @@ runtime: php55
 api_version: 1
 
 handlers:
-- url: /RateBySubjects\.html
-  script: getSubjects.php
+- url: /.*
+  script: index.html
