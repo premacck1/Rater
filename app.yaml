@@ -1,0 +1,8 @@
+application: grader
+version: 1
+runtime: php55
+api_version: 1
+
+handlers:
+- url: /RateBySubjects\.html
+  script: getSubjects.php
