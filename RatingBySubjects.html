@@ -20,7 +20,7 @@
 	}
 </script>
 </head>
-<body>		
+<body onload="getSubjects()">		
 <section id="banner">
 	<div class="inner" style="padding: 10px">
 		<header>
@@ -30,7 +30,7 @@
 		<div class="table-wrapper">
 			<div class="select-wrapper" style ="width: 75%; margin: auto;">
 				<select name="subject-category" id="demo-category" onchange="getSubjects()">
-					<option value="">- Category -</option>
+					<option value="0">- Select Semester -</option>
 					<option value="fall">Fall</option>
 					<option value="spring">Spring</option>
 				</select>

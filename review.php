@@ -74,7 +74,7 @@
 				  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				  xhttp.send("q="+qno+"&sub="+subject_name+"&rate="+rate);
 				  qno++;
-				  if(qno==6)
+				  if(qno==7)
 				  {
 					  window.location.replace("thankyou.html");
 				  }
