@@ -1,9 +1,9 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "grader";
-
+	$servername = "fdb5.biz.nf";
+	$username = "2270844_grader";
+	$password = "Random_123";
+	$dbname = "2270844_grader";
+        
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -18,7 +18,7 @@
 	else
 	{
 		echo "<thead><tr><th><h4 style=\"margin-bottom: 0px\">Course Description</h4></th></tr></thead><tbody>";
-		$sql = "SELECT a.subject_name as subject_name, b.sem FROM quessubz a Inner JOIN subjects b on a.subject_name = b.subject_name where b.sem='".$_POST["semSelect"]."' group by a.subject_name";
+		$sql = "SELECT a.subject_name as subject_name, b.sem FROM quesSubz a Inner JOIN subjects b on a.subject_name = b.subject_name where b.sem='".$_POST["semSelect"]."' group by a.subject_name";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			// output data of each row

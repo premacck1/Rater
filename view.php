@@ -1,8 +1,8 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "grader";
+	$servername = "fdb5.biz.nf";
+	$username = "2270844_grader";
+	$password = "Random_123";
+	$dbname = "2270844_grader";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -67,7 +67,7 @@
 						</thead>
 						<tbody id="table_body" style="color:#fff">
 							<?php
-								$sql = "select b.question as ques,a.avgRate as avgRate from quesSubz a, questions b where a.qno in (select DISTINCT(qno) from quesSubz) and a.subject_name='".$_GET["subject_name"]."' and a.qno=b.qno";
+								$sql = "select b.question as ques,ROUND(a.avgRate,2) as avgRate from quesSubz a, questions b where a.qno in (select DISTINCT(qno) from quesSubz) and a.subject_name='".$_GET["subject_name"]."' and a.qno=b.qno";
 								$result = $conn->query($sql);
 
 								if ($result->num_rows > 0) {

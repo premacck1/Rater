@@ -1,8 +1,8 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "grader";
+	$servername = "fdb5.biz.nf";
+	$username = "2270844_grader";
+	$password = "Random_123";
+	$dbname = "2270844_grader";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +13,7 @@
 	} 
 	
 	$sql = "SELECT avgRate, noOfRate FROM quesSubz WHERE subject_name='".$_POST["sub"]."' AND qno=".$_POST["q"];
-	echo $sql;
+
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {

@@ -76,7 +76,7 @@
 				  qno++;
 				  if(qno==7)
 				  {
-					  window.location.replace("thankyou.html");
+					  window.location.replace("grader.php?subject_name=<?php echo $_GET['subject_name'] ?>");
 				  }
 				  resetSlider();
 				  showQuestions();

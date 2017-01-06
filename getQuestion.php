@@ -1,8 +1,8 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "grader";
+	$servername = "fdb5.biz.nf";
+	$username = "2270844_grader";
+	$password = "Random_123";
+	$dbname = "2270844_grader";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);

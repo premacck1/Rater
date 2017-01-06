@@ -11,6 +11,6 @@
 	fwrite($myfile, $comment);
 	fwrite($myfile, "\r\n\r\n");
 	
-	header("Location: /grader");
+	header("Location: ./");
 	die();
 ?>
