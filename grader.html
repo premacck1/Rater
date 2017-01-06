@@ -5,15 +5,20 @@
 <title>Subject Ratings - CISE, University of Florida</title>
 <link rel="stylesheet" href="assets/css/common.css" />
 </head>
-<body onload="getSubjects()">		
+<body onload="getSubjects()">	
+<script>
+			  var subject_name = "<?php echo $_GET['subject_name']; ?>";	
+</script>
 <section id="banner">
 	<div class="inner" style="padding: 10px">
+	
+	<form action="feedback.php" method="post">
 		<header>
-			<h2 style="margin-bottom: 20px">Please select your grade for this course.</h2>
-			<h4 style="margin-bottom: 20px">This is an anonymous survey. Your grades won't be revealed to anyone.</h4>
+			<h2 style="margin-bottom: 20px">Please select your grade for the course <?php echo $_GET['subject_name']; ?></h2>
+			<h5 style="margin-bottom: 20px">This is an anonymous survey. Your grades won't be revealed to anyone.</h5>
 		</header>
 		<div class="select-wrapper" style ="width: 75%; margin: auto;">
-					<select name="subject-category" id="demo-category" onchange="getSubjects()">
+					<select name="subject-category" id="gradeValue" onchange="getSubjects()">
 						<option value="">- Select grade -</option>
 						<option value="4">A</option>
 						<option value="3.66">A-</option>
@@ -26,6 +31,8 @@
 						<option value="">other</option>
 					</select>
 		</div>
+		<div align="right"><input type="submit" id="Submit" style="width: 150px" class="button alt fit" value="Submit" onclick="submitAnswer()"></div>
+	</form>
 	</div>
 </section>
 </body>
