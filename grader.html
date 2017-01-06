@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Subject Ratings - CISE, University of Florida</title>
+<link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body onload="getSubjects()">		
+<section id="banner">
+	<div class="inner" style="padding: 10px">
+		<header>
+			<h2 style="margin-bottom: 20px">Please select your grade for this course.</h2>
+			<h4 style="margin-bottom: 20px">This is an anonymous survey. Your grades won't be revealed to anyone.</h4>
+		</header>
+		<div class="select-wrapper" style ="width: 75%; margin: auto;">
+					<select name="subject-category" id="demo-category" onchange="getSubjects()">
+						<option value="">- Select grade -</option>
+						<option value="4">A</option>
+						<option value="3.66">A-</option>
+						<option value="3.33">B+</option>
+						<option value="3">B</option>
+						<option value="2.66">B-</option>
+						<option value="2.33">C+</option>
+						<option value="2">C</option>
+						<option value="1.66">C-</option>
+						<option value="">other</option>
+					</select>
+		</div>
+	</div>
+</section>
+</body>
+</html>
